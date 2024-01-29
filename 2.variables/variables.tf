@@ -14,3 +14,16 @@ variable "v3" {
   }
 }
 # A variables supports map of values and we know variables having keys and values is called as Map
+
+variable "fruits" {
+  default = {
+    apple={
+      price = 200
+      quantity = 10
+    }
+    banana={
+      price = 40
+      quantity = 20
+    }
+  }
+}

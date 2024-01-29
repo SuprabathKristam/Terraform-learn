@@ -22,3 +22,7 @@ output "Value_in_Map2" {
 output "value_in_list1" {
   value = element(var.v2 ,4) # this will print 4th value and the index will work as 0,1,2,3,4,5,6..cycles
     }
+
+output "fruit_details" {
+  value = "Fruit name - Apple , Quantity - ${var.fruits["apple"]}" # Here we are using ${} to access variable as we are using it along with a string
+}
