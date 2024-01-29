@@ -18,3 +18,7 @@ output "Value_in_Map2" {
   value = lookup(var.v3, "xyz1", "none")
 }
 #here we are using lookup where we are trying to access a key that is not present in map then print none
+
+output "value_in_list1" {
+  value = element(var.v2 ,4) # this will print 4th value and the index will work as 0,1,2,3,4,5,6..cycles
+    }
