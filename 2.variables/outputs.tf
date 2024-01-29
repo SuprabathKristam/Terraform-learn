@@ -18,6 +18,6 @@ output "Value_in_Map1" {
   value = var.v3["xyz"] # To access values in map just give the key and it will access its value
 }*/
 output "Value_in_Map2" {
-  value = lookup(var.v3, "xyz1", none)
+  value = lookup(var.v3, "xyz1", "none")
 }
 #here we are using lookup where we are trying to access a key that is not present in map then print none
