@@ -24,5 +24,5 @@ output "value_in_list1" {
     }
 
 output "fruit_details" {
-  value = "Fruit name - Apple , Quantity - ${var.fruits["apple"]}" # Here we are using ${} to access variable as we are using it along with a string
+  value = "Fruit name - Apple , Quantity - ${var.fruits["apple"]["quantity"]}" # Here we are using ${} to access variable as we are using it along with a string
 }
