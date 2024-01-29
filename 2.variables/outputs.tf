@@ -10,9 +10,6 @@ output "second_values_in_list" {
   value = var.v2[1]  # Indexing starts from 0 so it will access 1st value of v2 variable
 }
 
-output "Value_in_Map" {
-  value = var.v3["xyz1"] # This will throw error as there is no key name xyz1 in the map
-}
 /*
 output "Value_in_Map1" {
   value = var.v3["xyz"] # To access values in map just give the key and it will access its value
