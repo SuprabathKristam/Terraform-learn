@@ -1,7 +1,7 @@
 resource "aws_instance" "frontend" {       # here frontend local_label given by us
-  ami                    = "ami-0f3c7d07486cad139"  #pick this from aws ,we are picking workstation ami as we are using same for all our images
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-01d072d60ba28281d"]
+  ami                    = var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
     Name = "frontend-dev"
@@ -9,7 +9,7 @@ resource "aws_instance" "frontend" {       # here frontend local_label given by 
 }
 
 resource "aws_route53_record" "frontend" { # frontend is local_label given by us
-  zone_id = "Z0989333373BZR91I0C0P"  #got from route53 in AWS
+  zone_id = var.zone_id
   name    = "frontend-dev"         #record name
   type    = "A"
   ttl     = 30                     #time to live
@@ -17,9 +17,9 @@ resource "aws_route53_record" "frontend" { # frontend is local_label given by us
 }
 
 resource "aws_instance" "backend" {       # here backend local_label given by us
-  ami                    = "ami-0f3c7d07486cad139"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-01d072d60ba28281d"]
+  ami                    = var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
     Name = "backend-dev"
@@ -27,7 +27,7 @@ resource "aws_instance" "backend" {       # here backend local_label given by us
 }
 
 resource "aws_route53_record" "backend" { # backend is local_label given by us
-  zone_id = "Z0989333373BZR91I0C0P"  #got from route53 in AWS
+  zone_id = var.zone_id
   name    = "backend-dev"         #record name
   type    = "A"
   ttl     = 30                     #time to live
@@ -36,9 +36,9 @@ resource "aws_route53_record" "backend" { # backend is local_label given by us
 
 
 resource "aws_instance" "mysql" {       # here mysql local_label given by us
-  ami                    = "ami-0f3c7d07486cad139"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-01d072d60ba28281d"]
+  ami                    = var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
     Name = "mysql-dev"
@@ -46,7 +46,7 @@ resource "aws_instance" "mysql" {       # here mysql local_label given by us
 }
 
 resource "aws_route53_record" "mysql" { # mysql is local_label given by us
-  zone_id = "Z0989333373BZR91I0C0P"  #got from route53 in AWS
+  zone_id = var.zone_id   #got from route53 in AWS
   name    = "mysql-dev"         #record name
   type    = "A"
   ttl     = 30                     #time to live
