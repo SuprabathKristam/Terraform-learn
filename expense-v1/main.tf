@@ -7,7 +7,6 @@ resource "aws_instance" "frontend" {       # here frontend local_label given by 
     Name = "frontend-dev"
   }
 }
-
 resource "aws_instance" "backend" {       # here backend local_label given by us
   ami                    = "ami-03265a0778a880afb"
   instance_type          = "t3.micro"
@@ -17,7 +16,6 @@ resource "aws_instance" "backend" {       # here backend local_label given by us
     Name = "backend-dev"
   }
 }
-
 resource "aws_instance" "mysql" {       # here mysql local_label given by us
   ami                    = "ami-03265a0778a880afb"
   instance_type          = "t3.micro"
