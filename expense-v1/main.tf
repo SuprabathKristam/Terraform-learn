@@ -7,6 +7,15 @@ resource "aws_instance" "frontend" {       # here frontend local_label given by 
     Name = "frontend-dev"
   }
 }
+
+resource "aws_route53_record" "frontend" { # frontend is local_label given by us
+  zone_id = "Z0989333373BZR91I0C0P"  #got from route53 in AWS
+  name    = "frontend-dev"         #record name
+  type    = "A"
+  ttl     = 30                     #time to live
+  records = [aws_instance.frontend.public_ip] # here we are reffering to ip address of above created frontend instance and our editor will automatically shows suggestions
+}
+
 resource "aws_instance" "backend" {       # here backend local_label given by us
   ami                    = "ami-0f3c7d07486cad139"
   instance_type          = "t3.micro"
@@ -16,6 +25,16 @@ resource "aws_instance" "backend" {       # here backend local_label given by us
     Name = "backend-dev"
   }
 }
+
+resource "aws_route53_record" "backend" { # backend is local_label given by us
+  zone_id = "Z0989333373BZR91I0C0P"  #got from route53 in AWS
+  name    = "backend-dev"         #record name
+  type    = "A"
+  ttl     = 30                     #time to live
+  records = [aws_instance.backend.public_ip] # here we are reffering to ip address of above created frontend instance and our editor will automatically shows suggestions
+}
+
+
 resource "aws_instance" "mysql" {       # here mysql local_label given by us
   ami                    = "ami-0f3c7d07486cad139"
   instance_type          = "t3.micro"
@@ -24,6 +43,14 @@ resource "aws_instance" "mysql" {       # here mysql local_label given by us
   tags = {
     Name = "mysql-dev"
   }
+}
+
+resource "aws_route53_record" "mysql" { # mysql is local_label given by us
+  zone_id = "Z0989333373BZR91I0C0P"  #got from route53 in AWS
+  name    = "mysql-dev"         #record name
+  type    = "A"
+  ttl     = 30                     #time to live
+  records = [aws_instance.mysql.public_ip] # here we are reffering to ip address of above created frontend instance and our editor will automatically shows suggestions
 }
 # Key pair is optional here we can through the documentation and under stand all the arugments
 # As per standards we are trying to main all = in one line and also separate blocks by empty line
