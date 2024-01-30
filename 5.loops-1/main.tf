@@ -15,6 +15,6 @@ resource "aws_instance" "test" { # here frontend local_label given by us
   vpc_security_group_ids = ["sg-01d072d60ba28281d"]
 
   tags = {
-    Name = "test"
+    Name = "test-${count.index}" #This will provide numbers like test-1 ,test-2, test-3
   }
 }
