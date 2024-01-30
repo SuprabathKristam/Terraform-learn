@@ -1,5 +1,5 @@
 resource "aws_instance" "frontend" {       # here frontend local_label given by us
-  ami                    = "ami-03265a0778a880afb"  #pick this from aws ,we are picking workstation ami as we are using same for all our images
+  ami                    = "ami-0f3c7d07486cad139"  #pick this from aws ,we are picking workstation ami as we are using same for all our images
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-01d072d60ba28281d"]
 
@@ -8,7 +8,7 @@ resource "aws_instance" "frontend" {       # here frontend local_label given by 
   }
 }
 resource "aws_instance" "backend" {       # here backend local_label given by us
-  ami                    = "ami-03265a0778a880afb"
+  ami                    = "ami-0f3c7d07486cad139"
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-01d072d60ba28281d"]
 
@@ -17,7 +17,7 @@ resource "aws_instance" "backend" {       # here backend local_label given by us
   }
 }
 resource "aws_instance" "mysql" {       # here mysql local_label given by us
-  ami                    = "ami-03265a0778a880afb"
+  ami                    = "ami-0f3c7d07486cad139"
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-01d072d60ba28281d"]
 
