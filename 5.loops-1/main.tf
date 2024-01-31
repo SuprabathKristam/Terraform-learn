@@ -31,5 +31,7 @@ resource "aws_instance" "test" {
   vpc_security_group_ids = ["sg-01d072d60ba28281d"]
 
   tags = {
-    Name = element(var.components, count.index ) #This will pick the index values of components variables (frontend,backend,mysql)
+    Name = element(var.components, count.index )
+    #This will pick the index values of components variables (frontend,backend,mysql)
   }
+}
