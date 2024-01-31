@@ -10,7 +10,7 @@ resource "aws_instance" "instances" {
 }
 
 resource "aws_route53_record" "records" {
-  count   = var.components
+  count   = length(var.components)
   zone_id = var.zone_id
   name    = "${element(var.components,count.index)}-dev"
   type    = "A"
