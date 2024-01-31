@@ -21,7 +21,7 @@ resource "aws_instance" "test" { # here frontend local_label given by us
 }*/
 
 variable "components" {
-  default = ["frontend","backend","mysql"]
+  default = ["frontend","backend","mysql","xyz","ashaghs"]
 }
 
 resource "aws_instance" "test" {
