@@ -1,0 +1,9 @@
+resource "aws_route53_record" "records" {
+  zone_id = "Z0989333373BZR91I0C0P"
+  name    = "test"
+  type    = "A"
+  ttl     = 30
+  records = [var.private_ip]
+}
+
+variable "private_ip" {} # We are calling it from root module main.tf file
