@@ -6,4 +6,4 @@ resource "aws_route53_record" "records" {
   records = [var.private_ip]
 }
 
-variable "private_ip" {} # We are calling it from root module main.tf file
+variable "private_ip" {} # We are calling it from root module main.tf file where we are passing it as input to route53 module from outputs.tf and outputs.tf got the information  from ec2 instance
