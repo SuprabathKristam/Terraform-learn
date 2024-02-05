@@ -1,3 +1,3 @@
 bucket = "awsbucket0910"
-key    = "test/dev/terraform.tfstate" # It will store the state file with this name in the S3 bucket
+key    = "test/dev/terraform.tfstate"
 region = "us-east-1"
